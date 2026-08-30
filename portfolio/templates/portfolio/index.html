@@ -1,0 +1,10 @@
+{% extends 'portfolio/base.html' %}{% block title %}Aishwarya Natikar | MCA Student & Web Developer{% endblock %}{% block content %}
+<section class="hero"><div class="container hero-grid"><div class="hero-copy reveal"><p class="eyebrow">MCA STUDENT <span>•</span> ASPIRING WEB DEVELOPER</p><h1>Building thoughtful digital experiences with <em>clean code.</em></h1><p class="hero-text">I'm Aishwarya, an MCA student who enjoys turning ideas into responsive, accessible and practical web applications.</p><div class="actions"><a class="btn btn-primary" href="{% url 'projects' %}">Explore my work <span>↗</span></a><a class="btn btn-secondary" href="{% url 'contact' %}">Let's connect</a></div><div class="availability"><span class="status-dot"></span><span>Open to internship & learning opportunities</span></div></div><div class="hero-card reveal" aria-label="Developer profile summary"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="code-card"><div class="code-top"><span></span><span></span><span></span><small>developer.js</small></div><pre><code><span class="purple">const</span> developer = {
+  name: <span class="green">"Aishwarya"</span>,
+  role: <span class="green">"Web Developer"</span>,
+  focus: [<span class="green">"UI"</span>, <span class="green">"Accessibility"</span>],
+  learning: <span class="green">true</span>
+};</code></pre></div></div></div></section>
+<section class="section proof"><div class="container stats"><div><strong>01</strong><span>Real-world project</span></div><div><strong>05+</strong><span>Core technologies</span></div><div><strong>100%</strong><span>Learning mindset</span></div></div></section>
+<section class="section section-muted"><div class="container split"><div class="reveal"><p class="eyebrow">WHAT I DO</p><h2>From structure to polished interfaces.</h2></div><div class="reveal"><p>I focus on semantic structure, responsive layouts, accessible interactions and maintainable code. My goal is simple: build websites that are easy to use and easy to improve.</p><a class="text-link" href="{% url 'about' %}">More about me <span>→</span></a></div></div></section>
+{% endblock %}
