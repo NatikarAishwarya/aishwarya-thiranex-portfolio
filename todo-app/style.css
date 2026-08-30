@@ -1,0 +1,800 @@
+/* ==================================================
+   AISHWARYA'S TO-DO LIST
+   CSS3 & RESPONSIVE DESIGN
+================================================== */
+
+
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================================================
+   CSS VARIABLES
+================================================== */
+
+:root {
+
+    --primary: #6c63ff;
+    --primary-dark: #5148d8;
+
+    --background: #f4f5fb;
+
+    --card-background: #ffffff;
+
+    --text: #202124;
+
+    --muted: #70757a;
+
+    --border: #e5e7eb;
+
+    --success: #22a06b;
+
+    --danger: #dc3545;
+
+    --shadow:
+        0 15px 40px rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* ==================================================
+   BODY
+================================================== */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5f7ff,
+            #eef0ff
+        );
+
+    color: var(--text);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 40px 20px;
+
+}
+
+
+/* ==================================================
+   MAIN CONTAINER
+================================================== */
+
+.todo-container {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    background: var(--card-background);
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.todo-header {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.todo-header h1 {
+
+    font-size: 36px;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+.todo-header p {
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+}
+
+
+/* ==================================================
+   ACCESSIBILITY
+================================================== */
+
+.sr-only {
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 1px;
+
+    padding: 0;
+
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+
+}
+
+
+/* ==================================================
+   TASK INPUT
+================================================== */
+
+.task-input {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.task-input input {
+
+    flex: 1;
+
+    padding: 14px 16px;
+
+    border: 2px solid var(--border);
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.task-input input:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(108, 99, 255, 0.15);
+
+}
+
+
+.task-input button {
+
+    border: none;
+
+    background: var(--primary);
+
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.task-input button:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-1px);
+
+}
+
+
+.task-input button:focus-visible {
+
+    outline: 3px solid
+        rgba(108, 99, 255, 0.3);
+
+    outline-offset: 2px;
+
+}
+
+
+/* ==================================================
+   STATISTICS
+================================================== */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.stat-card {
+
+    background: #f8f8ff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    text-align: center;
+
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    font-size: 28px;
+
+    color: var(--primary);
+
+    margin-bottom: 5px;
+
+}
+
+
+.stat-card span {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+/* ==================================================
+   FILTERS
+================================================== */
+
+.filters {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.filter {
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    color: var(--muted);
+
+    padding: 9px 18px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.filter:hover {
+
+    color: var(--primary);
+
+    border-color: var(--primary);
+
+}
+
+
+.filter.active {
+
+    background: var(--primary);
+
+    color: white;
+
+    border-color: var(--primary);
+
+}
+
+
+.filter:focus-visible {
+
+    outline: 3px solid
+        rgba(108, 99, 255, 0.25);
+
+    outline-offset: 2px;
+
+}
+
+
+/* ==================================================
+   TASK LIST
+================================================== */
+
+.task-list {
+
+    list-style: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+/* ==================================================
+   TASK ITEM
+================================================== */
+
+.task {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: white;
+
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.task:hover {
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.06);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ==================================================
+   CHECKBOX
+================================================== */
+
+.complete-checkbox {
+
+    width: 20px;
+
+    height: 20px;
+
+    cursor: pointer;
+
+    accent-color: var(--primary);
+
+    flex-shrink: 0;
+
+}
+
+
+/* ==================================================
+   TASK TEXT
+================================================== */
+
+.task-text {
+
+    flex: 1;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+
+}
+
+
+.task.completed .task-text {
+
+    text-decoration: line-through;
+
+    color: var(--muted);
+
+}
+
+
+/* ==================================================
+   TASK ACTIONS
+================================================== */
+
+.task-actions {
+
+    display: flex;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+
+}
+
+
+.task-actions button {
+
+    border: none;
+
+    padding: 7px 11px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+
+.complete-btn {
+
+    background: #e9f8f0;
+
+    color: var(--success);
+
+}
+
+
+.complete-btn:hover {
+
+    background: #d5f1e2;
+
+}
+
+
+.edit-btn {
+
+    background: #eeeeff;
+
+    color: var(--primary);
+
+}
+
+
+.edit-btn:hover {
+
+    background: #dedcff;
+
+}
+
+
+.delete-btn {
+
+    background: #fff0f1;
+
+    color: var(--danger);
+
+}
+
+
+.delete-btn:hover {
+
+    background: #ffe0e3;
+
+}
+
+
+.task-actions button:focus-visible {
+
+    outline: 3px solid
+        rgba(108, 99, 255, 0.25);
+
+    outline-offset: 2px;
+
+}
+
+
+/* ==================================================
+   EMPTY MESSAGE
+================================================== */
+
+.empty-message {
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: var(--muted);
+
+}
+
+
+.check-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #eeeeff;
+
+    color: var(--primary);
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+}
+
+
+.empty-message h2 {
+
+    color: var(--text);
+
+    font-size: 20px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.empty-message p {
+
+    font-size: 14px;
+
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 650px) {
+
+    body {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .todo-container {
+
+        padding: 25px;
+
+    }
+
+
+    .todo-header h1 {
+
+        font-size: 30px;
+
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 500px) {
+
+    body {
+
+        padding: 15px 10px;
+
+    }
+
+
+    .todo-container {
+
+        padding: 20px 15px;
+
+        border-radius: 15px;
+
+    }
+
+
+    .todo-header h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .todo-header p {
+
+        font-size: 14px;
+
+    }
+
+
+    .task-input {
+
+        flex-direction: column;
+
+    }
+
+
+    .task-input button {
+
+        width: 100%;
+
+    }
+
+
+    .stats {
+
+        gap: 8px;
+
+    }
+
+
+    .stat-card {
+
+        padding: 12px 5px;
+
+    }
+
+
+    .stat-card strong {
+
+        font-size: 23px;
+
+    }
+
+
+    .stat-card span {
+
+        font-size: 12px;
+
+    }
+
+
+    .filters {
+
+        gap: 5px;
+
+    }
+
+
+    .filter {
+
+        padding: 8px 12px;
+
+        font-size: 13px;
+
+    }
+
+
+    .task {
+
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .task-text {
+
+        min-width: 0;
+
+    }
+
+
+    .task-actions {
+
+        width: 100%;
+
+        margin-left: 34px;
+
+    }
+
+
+    .task-actions button {
+
+        flex: 1;
+
+    }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        scroll-behavior: auto !important;
+
+        transition: none !important;
+
+        animation: none !important;
+
+    }
+
+}
